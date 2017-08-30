@@ -1,0 +1,150 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Fugaz One', cursive;
+}
+
+body{
+    background: rgba(247, 125, 57, .1);
+}
+
+h1 {
+    font-size: 6rem;
+    margin-top: 55px;
+    text-align: center;
+    background: rgb(255, 12, 0);
+    color: transparent;
+    text-shadow: 4px 4px 6px rgba(255, 249, 244, 0.7);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+}
+
+main {
+    width: 400px;
+    height: 400px;
+    margin: 55px auto 0 auto;
+    background: rgba(78, 205, 196, 0.5);
+    border-radius: 50%;
+    box-shadow: 3px 3px 33px -3px rgba(0, 0, 0, 0.6);
+    box-shadow: -3px -3px 11px -1px rgba(0, 0, 0, 0.6), 3px 3px 11px -1px rgba(0, 0, 0, 0.6), inset -1px -1px 11px -1px rgba(33, 33, 33, 0.7), inset 3px 3px 11px -1px rgba(160, 173, 215, 0.7);
+}
+
+.noborder {
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    outline: none;
+    border: none;
+    background: transparent;
+    box-shadow: 3px 3px 22px -1px rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+    position: relative;
+}
+
+input {
+    padding: 5px;
+    top: 70px;
+    text-align: center;
+    outline: none;
+    border: none;
+    background: transparent;
+    line-height: 34px;
+    font-size: 100%;
+}
+
+#guess {
+    top: 200px;
+    border-radius: 33px;
+    padding: 9px;
+    background: rgba(199, 244, 100, 0.8);
+    box-shadow: 3px 3px 3px -1px rgba(0, 0, 0, 0.6), 5px 3px 3px -1px rgba(0, 0, 0, 0.6), inset -1px -1px 11px 1px rgba(33, 33, 33, 0.7), inset 1px 1px 11px 1px rgba(160, 173, 215, 0.7);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#guess:hover {
+    background: rgba(0, 0, 0, .1);
+}
+
+#guess:active {
+    box-shadow: 3px 1px 3px -1px rgba(0, 0, 0, 0.6), 2px 3px 3px -1px rgba(0, 0, 0, 0.6), inset -1px -1px 11px 1px rgba(33, 33, 33, 0.7), inset 1px 1px 11px 1px rgba(160, 173, 215, 0.7);
+    transform: translate(3px, 3px);
+}
+
+input::placeholder {
+    color: rgba(27, 152, 35, 0.7);
+}
+
+#range {
+    top: 10px;
+}
+#range::placeholder {
+    color: rgba(145, 36, 193, 0.7);
+}
+
+.error {
+    top: 20px;
+    width: 90%;
+    background: rgba(196, 77, 88, .7);
+    font-size: 80%;
+    color: rgb(68, 8, 8);
+}
+
+.message {
+    top: 50px;
+    width: 90%;
+    font-size: 80%;
+}
+
+.high {
+    background: rgba(214, 145, 10, .7);
+    color: rgba(181, 35, 35, .7);
+}
+
+.low {
+    background: rgba(20, 16, 227, 0.4);
+    color: rgb(32, 250, 235);
+}
+
+.win {
+    display: block;
+    background: rgba(227, 194, 42, 0.42);
+    color: rgb(250, 71, 211);
+}
+
+.big {
+    font-weight: 900;
+    font-size: 150%;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:visited {
+    color: #333;
+}
+
+.pulse {
+    display: block;
+    background: rgba(250, 71, 211, 0.3);
+    box-shadow: 0 0 0 rgba(250, 71, 211, 0.3);
+    animation: pulse 2s infinite;
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(250, 71, 211, 0.7);
+    }
+    60% {
+        box-shadow: 0 0 5px 50px rgba(250, 71, 211, 0);
+    }
+    0% {
+        box-shadow: 0 0 0 0 rgba(250, 71, 211, 0.7);
+    }
+}
