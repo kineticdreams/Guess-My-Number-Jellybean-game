@@ -43,6 +43,7 @@ main {
 }
 
 input {
+    /*position: sticky;*/
     padding: 5px;
     top: 70px;
     text-align: center;
@@ -53,7 +54,7 @@ input {
     font-size: 100%;
 }
 
-#guess {
+#guess, #rangeButton {
     top: 200px;
     border-radius: 33px;
     padding: 9px;
@@ -63,11 +64,11 @@ input {
     transition: all 0.2s ease;
 }
 
-#guess:hover {
+#guess:hover, #rangeButton:hover {
     background: rgba(0, 0, 0, .1);
 }
 
-#guess:active {
+#guess:active, #rangeButton:active {
     box-shadow: 3px 1px 3px -1px rgba(0, 0, 0, 0.6), 2px 3px 3px -1px rgba(0, 0, 0, 0.6), inset -1px -1px 11px 1px rgba(33, 33, 33, 0.7), inset 1px 1px 11px 1px rgba(160, 173, 215, 0.7);
     transform: translate(3px, 3px);
 }
@@ -76,15 +77,12 @@ input::placeholder {
     color: rgba(27, 152, 35, 0.7);
 }
 
-#range {
-    top: 10px;
-}
 #range::placeholder {
     color: rgba(145, 36, 193, 0.7);
 }
 
 .error {
-    top: 20px;
+    top: 50px;
     width: 90%;
     background: rgba(196, 77, 88, .7);
     font-size: 80%;
@@ -108,14 +106,14 @@ input::placeholder {
 }
 
 .win {
-    display: block;
+    top: 100px;
     background: rgba(227, 194, 42, 0.42);
     color: rgb(250, 71, 211);
 }
 
 .big {
     font-weight: 900;
-    font-size: 150%;
+    font-size: 200%;
 }
 
 a {

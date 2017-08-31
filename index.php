@@ -29,25 +29,18 @@ function testInput($data)
 
 <main>
     <form class="userGuess" action="<?php echo $_SERVER['php_self'] ?>" method="post" autocomplete="off">
-        <input type="text" name="selectNumber" class="noborder" maxlength="<?php echo strlen((string)PHP_INT_MAX); ?>" placeholder="Input a number">
-        <button type="submit" name="guess" id="guess" class="noborder">Guess the number!</button>
 
     <?php
     // <------------- INITIALIZATION CODE BLOCK
     if (!isset($_SESSION["number"]) || !isset($_SESSION["maxRange"])) { // check if $_SESSION["number"] variable is set
     ?>
-        <input type="text" name="maxRange" class="noborder" id="range" maxlength="<?php echo strlen((string)PHP_INT_MAX); ?>" placeholder="Input a range number" value="<?php
-        if (isset($_POST['maxRange'])) {
-            echo $_POST['maxRange'];
-        }
-        ?>">
+        <input type="text" name="maxRange" class="noborder" id="range" maxlength="<?php echo strlen((string)PHP_INT_MAX); ?>" placeholder="Input a range number">
+        <button type="submit" name="guess" id="rangeButton" class="noborder">Let's GO!</button>
 
         <?php
         $input = testInput($_POST["selectNumber"]); // sanitize the input
         $maxRange = testInput($_POST["maxRange"]);
-        if (empty($input)) {// <------ start checking for input errors
-            $errors[] = "Please input your guess number";
-        } elseif (empty($maxRange)){
+        if (empty($maxRange)){
             $errors[] = "Please input a range number";
         } else {
             if (!is_numeric($maxRange)) {
@@ -58,16 +51,6 @@ function testInput($data)
                 }
                 if ($maxRange > PHP_INT_MAX) {
                     $errors[] = "Your range number has to be =< " . PHP_INT_MAX; //maximum value for integer number in PHP
-                }
-            }
-            if (!is_numeric($input)) {
-                $errors[] = "$input is not a number!";
-            } else {
-                if ($input < 1) {
-                    $errors[] = "Your number has to be > 0";
-                }
-                if ($input > $maxRange) {
-                    $errors[] = "Range number has to be bigger than guess number!";
                 }
             }
         } // <------ end of input error checking
@@ -88,11 +71,13 @@ function testInput($data)
 
         if (isset($_SESSION["number"])) {// if $_SESSION["number"] exists then display the form
             ?>
+            <input type="text" name="selectNumber" id="selectNumber" class="noborder" maxlength="<?php echo strlen((string)PHP_INT_MAX); ?>" placeholder="Input a number">
+            <button type="submit" name="guess" id="guess" class="noborder">Guess the number!</button>
             <script>
+                document.querySelector("#rangeButton").classList.add("hidden");
                 document.querySelector("#range").classList.add("hidden");
             </script>
         <?php
-//        errorCheck();
         $input = testInput($_POST["selectNumber"]); //trim and sanitize the input
         $maxRange = testInput($_SESSION["maxRange"]);
 
@@ -129,12 +114,15 @@ function testInput($data)
                 session_destroy();
                 ?>
                 <script>//
+                    document.querySelector("#selectNumber").classList.add("hidden");
+//                    document.querySelector("#selectNumber").classList.add("hidden");
                     const playAgain = document.querySelector("#guess");
                     const mainEl = document.querySelector("main");
                     mainEl.classList.add("pulse");//adds an animation effect to <main> tag
-                    playAgain.classList.remove("hidden");
+                    // playAgain.classList.remove("hidden");
+                    playAgain.style.top = "280px";
                     playAgain.innerHTML = "<a href='index.php'>Play Again</a>";//restarts the game
-                    document.querySelector("#range").classList.remove("hidden");
+                    // document.querySelector("#range").classList.remove("hidden");
                 </script>
                 <?php
             }
